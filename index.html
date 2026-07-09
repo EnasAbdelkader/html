@@ -28,6 +28,7 @@
     --fun:"Comic Neue","Chalkboard SE","Comic Sans MS","Trebuchet MS",var(--sans);
     --shadow:0 6px 0 rgba(230, 219, 184, 0.6), 0 8px 24px rgba(0,0,0,.04);
     --radius:20px;
+    --nav-btn-bg: #ffffff;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
@@ -39,9 +40,9 @@
   .app{display:flex;min-height:100vh;position:relative;z-index:1}
   .sidebar{width:290px;flex-shrink:0;background:var(--soft);border-right:3px solid var(--border);
     position:sticky;top:0;height:100vh;overflow-y:auto;padding:24px 16px;box-shadow:4px 0 0 rgba(0,0,0,0.02)}
-  .brand{display:flex;align-items:center;gap:12px;padding:0 8px 8px;margin-bottom:12px}
-  .brand .logo{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg, var(--blue), var(--orange));color:#fff;
-    display:grid;place-items:center;font-weight:700;font-family:var(--mono);font-size:16px;box-shadow:0 4px 0 rgba(0,0,0,0.15)}
+  .brand{display:flex;align-items:center;gap:14px;padding:0 8px 8px;margin-bottom:12px}
+  .brand .logo{width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg, #4A76FD, #E01174);color:#fff;
+    display:grid;place-items:center;font-size:22px;box-shadow:0 4px 0 rgba(0,0,0,0.12);flex-shrink:0}
   .brand h1{font-size:18px;line-height:1.2;font-family:var(--fun);font-weight:800;color:var(--text)}
   .brand p{font-size:13px;color:var(--text2);font-weight:600}
   
@@ -55,9 +56,9 @@
   nav a .nx{width:32px;height:32px;border-radius:10px;background:var(--surface);color:var(--text2);
     display:grid;place-items:center;font-size:15px;flex-shrink:0;border:2px solid var(--border);box-shadow:0 2px 0 var(--border)}
   nav a:hover{background:var(--surface);transform:translateX(4px) scale(1.02)}
-  nav a.active{background:var(--blue-soft);color(--blue);box-shadow:0 4px 0 var(--blue);border:2px solid var(--blue);transform:translateX(4px)}
-  nav a.active .nx{background:var(--blue);color:#fff;border-color:var(--blue);box-shadow:0 2px 0 #1B65DB}
-  nav a.done .nx{background:var(--green);color:#fff;border-color:var(--green);box-shadow:0 2px 0 #198F53}
+  nav a.active{background:var(--blue-soft);color:var(--blue);box-shadow:0 4px 0 var(--blue);border:2px solid var(--blue);transform:translateX(4px)}
+  nav a.active .nx{background:var(--blue);color:var(--nav-btn-bg);border-color:var(--blue);box-shadow:0 2px 0 #1B65DB}
+  nav a.done .nx{background:var(--green);color:var(--nav-btn-bg);border-color:var(--green);box-shadow:0 2px 0 #198F53}
   .navsec{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--text2);
     padding:16px 12px 6px;font-weight:800;font-family:var(--fun)}
 
@@ -185,7 +186,6 @@
 
   .page{display:none;animation:fade .3s ease}
   .page.active{display:block}
-  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
   
   .page.active>*{animation:blockIn .5s cubic-bezier(0.175, 0.885, 0.32, 1.15) backwards}
   .page.active>*:nth-child(1){animation-delay:.03s}
@@ -195,14 +195,10 @@
   .page.active>*:nth-child(5){animation-delay:.23s}
   @keyframes blockIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 
-  .mark-done{display:flex;align-items:center;gap:12px;margin-top:42px;padding:20px;border:3px solid var(--border);border-radius:var(--radius);background:var(--soft);box-shadow:0 4px 0 var(--border)}
-  .mark-done span{font-weight:800;font-size:17px}
-  .mark-done .btn{margin-left:auto}
-
-  /* mobile */
+  /* mobile layout flat overlay updates */
   .menu-btn{display:none;position:fixed;top:14px;left:14px;z-index:50;background:#fff;border:3px solid var(--border);
     border-radius:12px;width:48px;height:48px;font-size:24px;cursor:pointer;box-shadow:var(--shadow);place-items:center}
-  .backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.25);backdrop-filter:blur(4px);z-index:40}
+  .backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.2);z-index:40}
   @media(max-width:880px){
     .play-body{grid-template-columns:1fr}
     .play-body .preview{border-left:0;border-top:3px solid var(--border)}
@@ -219,7 +215,8 @@
   [data-theme="dark"]{--text:#FFF;--text2:rgba(255,255,255,.75);--canvas:#1E1E22;--soft:#292930;
     --surface:#3E3E4A;--border:#4E4E5A;--blue:#6495ED;--blue-soft:rgba(100,149,237,.12);
     --green:#44E599;--green-soft:rgba(68,229,153,.12);--orange:#FF5E97;--orange-soft:rgba(255,94,151,.12);
-    --red:#FF6B6B;--red-soft:rgba(255,107,107,.12);--shadow:0 6px 0 #121215,0 8px 24px rgba(0,0,0,.3)}
+    --red:#FF6B6B;--red-soft:rgba(255,107,107,.12);--shadow:0 6px 0 #121215,0 8px 24px rgba(0,0,0,.3);
+    --nav-btn-bg:#1E1E22}
   [data-theme="dark"] .apart.tag{background:rgba(11,90,168,0.3);color:#99CCFF}
   [data-theme="dark"] .apart.txt{background:var(--soft);color:var(--text)}
   [data-theme="dark"] .chip.attr{background:rgba(44,209,130,0.15);color:#44E599}
@@ -298,13 +295,13 @@
   <span class="fl" style="left:85%;animation-duration:22s;animation-delay:5s;color:var(--yellow)">&lt;h1&gt;</span>
 </div>
 
-<button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+<button class="menu-btn" style="color: black;" id="menuBtn" aria-label="Open menu">☰</button>
 <div class="backdrop" id="backdrop"></div>
 <div class="app">
   <aside class="sidebar" id="sidebar">
     <div class="brand">
       <div class="logo"><i class="fa-solid fa-code"></i></div>
-      <div><h1>HTML Foundations</h1><p>Interactive explainer</p></div>
+      <div><h1>HTML</h1><p style="margin: 0;">Interactive explainer</p></div>
     </div>
     <div class="theme-toggle" id="themeToggle" role="group" aria-label="Color theme">
       <button type="button" data-theme-set="light"><i class="fa-solid fa-sun"></i> Light</button>
@@ -473,7 +470,7 @@ L.push({ id:'tags', icon:'fa-solid fa-tag',
   ${codeBlock('','<img src="logo.png" alt="Company logo" width="120">')}
   <ul class="doc">
     <li><code>img</code> — ${t('the tag name — it says what kind of element this is.','اسم التاج — بيقول العنصر ده نوعه إيه.')}</li>
-    <li><code>src</code>, <code>alt</code>, <code>width</code> — ${t('three attributes, each with its own value inside quotes.','ثلاث خصائص، كل واحدة ليها قيمة بين علامتين تنصيص.')}</li>
+    <li><code>src</code>, <code>alt</code>, <code>width</code> — ${t('three attributes, each with its own value inside quotes.','three attributes, each with its own value inside quotes.')}</li>
     <li>${t('There is no closing tag here — <code>&lt;img&gt;</code> is a void element (explained next).','مفيش تاج بيقفل هنا — <code>&lt;img&gt;</code> عنصر فارغ (هنشرحه تحت).')}</li>
   </ul>
 
@@ -525,7 +522,7 @@ L.push({ id:'tags', icon:'fa-solid fa-tag',
   <div class="exercise">
     <span class="etag"><i class="fa-solid fa-screwdriver-wrench"></i> ${t('Exercise 2','تمرين 2')}</span>
     <h4>${t('Label the parts','سمّي الأجزاء')}</h4>
-    <p class="goal">${t('Given <code>&lt;img src="logo.png" alt="Logo"&gt;</code>, identify in your notes: the tag name, each attribute name, and each value. Is it a container or empty tag?','بص على <code>&lt;img src="logo.png" alt="Logo"&gt;</code>، واكتب في ورقتك: اسم التاج، واسم كل خاصية، وكل قيمة. هو تاج حاوي ولا فارغ؟')}</p>
+    <p class="goal">${t('Given <code>&lt;img src="logo.png" alt="Logo"&gt;</code>, identify in your notes: the tag name, each attribute name, and each value. Is it a container or empty tag?','بص على <code>&lt;img src="logo.png" alt="Logo"&gt;</code>، واكتب in your notes: اسم التاج، واسم كل خاصية، وكل قيمة. هو تاج حاوي ولا فارغ؟')}</p>
     <ul class="checklist">
       <li><i class="fa-solid fa-star fa-check-star"></i> ${t('Name the tag','سمّي التاج')}</li>
       <li><i class="fa-solid fa-star fa-check-star"></i> ${t('List both attributes and their values','اكتب الخاصيتين وقيمهم')}</li>
@@ -538,7 +535,7 @@ L.push({ id:'tags', icon:'fa-solid fa-tag',
 `});
 
 L.push({ id:'semantic', icon:'fa-solid fa-puzzle-piece',
-  nav:{en:'3 · Semantic elements', ar:'3 · العناصر الدالة'},
+  nav:{en:'3 · Semantic elements', ar:'3 · Elements عناصر دالة'},
   section:{en:'Core', ar:'الأساسيات'},
   body:()=>`
   <span class="kicker">${t('Lesson 3','الدرس 3')}</span>
@@ -580,7 +577,7 @@ L.push({ id:'semantic', icon:'fa-solid fa-puzzle-piece',
   ${play(`<header style="background:#EEF4FF;padding:12px">\n  <h1>My Blog</h1>\n  <nav>Home · About · Contact</nav>\n</header>\n<main style="padding:12px">\n  <article>\n    <h2>First post</h2>\n    <p>Semantic tags describe meaning.</p>\n  </article>\n  <aside><small>Related links here.</small></aside>\n</main>\n<footer style="background:#F4EDE0;padding:12px">\n  <small>© 2026</small>\n</footer>`)}
 
   <div class="exercise">
-    <span class="etag"><i class="fa-solid fa-screwdriver-wrench"></i> ${t('Exercise 3','تمرين 3')}</span>
+    <span class="etag"><i class="fa-solid fa-screwdriver-wrench"></i> ${t('Exercise 3','تمنين 3')}</span>
     <h4>${t('Fix the div soup','صلّح حساء الـ div')}</h4>
     <p class="goal">${t('In the editor above, replace the generic containers with semantic ones so the page has a real header, nav, main, an article, and a footer.','في المحرر فوق، استبدل الصناديق العامة بعناصر دالة علشان الصفحة يبقى فيها header وnav وmain وarticle وfooter حقيقيين.')}</p>
     <ul class="checklist">
@@ -705,7 +702,7 @@ L.push({ id:'lists', icon:'fa-solid fa-list-ul',
   <p>${t('Use <code>&lt;dl&gt;</code> for term/definition pairs: <code>&lt;dt&gt;</code> is the term, <code>&lt;dd&gt;</code> is the description.','استخدم <code>&lt;dl&gt;</code> لأزواج مصطلح/تعريف: <code>&lt;dt&gt;</code> المصطلح، <code>&lt;dd&gt;</code> الشرح.')}</p>
   ${codeBlock('','<dl>\n  <dt>HTML</dt>\n  <dd>The structure of a page.</dd>\n  <dt>CSS</dt>\n  <dd>The styling of a page.</dd>\n</dl>')}
 
-  <div class="callout note"><span class="ic"><i class="fa-solid fa-circle-info"></i></span><div><strong>${t('Nesting:','التداخل:')}</strong> ${t('you can put a full <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code> <em>inside</em> an <code>&lt;li&gt;</code> to create sub-lists — just keep the nesting valid.','تقدر تحط <code>&lt;ul&gt;</code> أو <code>&lt;ol&gt;</code> كاملة <em>جوّا</em> <code>&lt;li&gt;</code> علشان تعمل لوائم فرعية — بس خلّي التداخل صح.')}</div></div>
+  <div class="callout note"><span class="ic"><i class="fa-solid fa-circle-info"></i></span><div><strong>${t('Nesting:','التدخل:')}</strong> ${t('you can put a full <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code> <em>inside</em> an <code>&lt;li&gt;</code> to create sub-lists — just keep the nesting valid.','تقدر تحط <code>&lt;ul&gt;</code> أو <code>&lt;ol&gt;</code> كاملة <em>جوّا</em> <code>&lt;li&gt;</code> علشان تعمل لوائم فرعية — بس خلّي التداخل صح.')}</div></div>
 
   <h3>${t('Try it live','جرّب بنفسك')}</h3>
   ${play(`<h3>Morning routine</h3>\n<ol>\n  <li>Wake up</li>\n  <li>Coffee\n    <ul>\n      <li>Beans</li>\n      <li>Water</li>\n    </ul>\n  </li>\n  <li>Code!</li>\n</ol>`)}
@@ -966,7 +963,7 @@ L.push({ id:'final', icon:'fa-solid fa-star',
   nav:{en:'✓ Final review', ar:'✓ المراجعة النهائية'},
   section:{en:'Finish', ar:'النهاية'},
   body:()=>`
-  <span class="kicker">${t('Wrap-up','ختام')}</span>
+  <span class="kicker">${t('Wrap-up','مختصر')}</span>
   <h2 class="title"><span class="tico"><i class="fa-solid fa-star"></i></span> ${t('Final review','المراجعة النهائية')}</h2>
   <p class="lead">${t('You made it through all ten topics. Let’s lock it in with a cheat-sheet and a mixed quiz.','خلّصت العشر مواضيع كلها. يلا نثبّتها بملخص وكويز متنوّع.')}</p>
 
@@ -1004,7 +1001,7 @@ let current='home';
 function currentId(){ return (location.hash||'#home').replace('#',''); }
 
 function buildNav(){
-  const nav=document.getElementById('nav');
+  const navdocument = document.getElementById('nav');
   let html=''; let lastSec=null;
   L.forEach(l=>{
     const sec=pick(l.section);
@@ -1014,7 +1011,7 @@ function buildNav(){
     const currentIcon=done[l.id]?'<i class="fa-solid fa-circle-check"></i>':`<i class="${l.icon}"></i>`;
     html+=`<a href="#${l.id}" class="${active} ${dn}"><span class="nx">${currentIcon}</span><span>${pick(l.nav)}</span></a>`;
   });
-  nav.innerHTML=html;
+  navdocument.innerHTML=html;
 }
 
 function updateProgress(){
